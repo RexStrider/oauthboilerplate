@@ -1,7 +1,8 @@
 const router = require("express").Router();
-
+const todoRoutes = require('./todoRoutes');
 
 // we're inside /api
+router.use('/todos', todoRoutes)
 
 // /api/currentUser
 router.get('/currentUser', (req, res) => {
@@ -11,7 +12,7 @@ router.get('/currentUser', (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.logout();
-    res.redirect('/');
+    res.redirect('http://localhost:3000');
 });
 
 module.exports = router;
